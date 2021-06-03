@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import moonImg from '../assets/moon.jpg';
+import nebulaImg from '../assets/nebula.jpg';
+import moonNormalMap from '../assets/normal-map.jpg';
 
 const scene = new THREE.Scene();
 
@@ -56,13 +59,13 @@ function addStar() {
 
 for (let i = 0; i < 200; i++) addStar();
 
-scene.background = new THREE.TextureLoader().load('assets/nebula.jpg');
+scene.background = new THREE.TextureLoader().load(nebulaImg);
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial({
-    map: new THREE.TextureLoader().load('assets/moon.jpg'),
-    normalMap: new THREE.TextureLoader().load('assets/normal.jpg'),
+    map: new THREE.TextureLoader().load(moonImg),
+    normalMap: new THREE.TextureLoader().load(moonNormalMap),
   })
 );
 
